@@ -1,4 +1,17 @@
+import { useRouter } from 'next/router';
+import { useContext, useEffect } from 'react';
+import { UserContext } from '../contexts/user.context';
+
 export function Index() {
+  const router = useRouter();
+  const { isLoggedIn } = useContext(UserContext);
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push("/login");
+    }
+  }, [isLoggedIn, router]);
+
   return (
     <div className="bg-gray-50">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">

@@ -1,18 +1,15 @@
 import { AppProps } from 'next/app';
-import Head from 'next/head';
+import { UserContextProvider } from '../contexts/user.context';
 import './styles.css';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+function PolarMelonApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Head>
-        <title>Welcome to site!</title>
-      </Head>
+    <UserContextProvider>
       <main className="app">
         <Component {...pageProps} />
       </main>
-    </>
+    </UserContextProvider>
   );
 }
 
-export default CustomApp;
+export default PolarMelonApp;

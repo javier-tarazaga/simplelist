@@ -2,6 +2,19 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type AuthTokens {
+  refreshToken: String!
+  token: String!
+}
+
+input AuthenticateWithGithubInput {
+  code: String!
+}
+
+type Mutation {
+  authenticateWithGithub(input: AuthenticateWithGithubInput!): AuthTokens!
+}
+
 type Query {
   me: User!
 }
