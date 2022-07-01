@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@polar-melon/gateway-client": ["libs/gateway-client/src/index.ts"]
+      "@polar-melon/gateway-client": [
+        "libs/gateway-client/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

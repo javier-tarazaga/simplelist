@@ -2,12 +2,16 @@ import React, { useState, useEffect, useContext } from "react";
 import { useRouter } from "next/router";
 import GithubIcon from "mdi-react/GithubIcon";
 import { UserContext } from '../contexts/user.context';
+import { useMutation } from '@apollo/client';
+import { AUTHENTICATE_WITH_GITHUB } from '@polar-melon/gateway-client';
 
 
 export default function Login() {
   const router = useRouter();
   const { isLoggedIn, setUser, setIsLoggedIn } = useContext(UserContext);
   const [data, setData] = useState({ errorMessage: "", isLoading: false });
+  const [authenticateWithGithub, { data: authTokens, loading, error }] = useMutation(AUTHENTICATE_WITH_GITHUB);
+
 
   const clientId = 'a6fef03c17dbd729d9ac';
   const redirectUri = 'https://5969-185-228-154-74.eu.ngrok.io/login';
@@ -23,30 +27,12 @@ export default function Login() {
       window.history.pushState({}, null, newUrl[0]);
       setData({ ...data, isLoading: true });
 
-      const requestData = {
-        code: newUrl[1]
-      };
 
-      // const proxy_url = state.proxy_url;
-
-      // Use code parameter and other parameters to make POST request to proxy_server
-      fetch('localhost:3333/graphql', {
-        method: "POST",
-        body: JSON.stringify(requestData)
+      authenticateWithGithub({
+        variables: { input: { code: newUrl[1] }}
       })
-        .then(response => response.json())
-        .then(data => {
-          setUser(data);
-          setIsLoggedIn(true);
-        })
-        .catch(error => {
-          setData({
-            isLoading: false,
-            errorMessage: "Sorry! Login failed"
-          });
-        });
     }
-  }, [data, setIsLoggedIn, setUser]);
+  }, [authenticateWithGithub, data, setIsLoggedIn, setUser]);
 
   if (isLoggedIn) {
     router.push("/");

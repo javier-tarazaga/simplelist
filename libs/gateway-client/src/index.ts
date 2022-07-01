@@ -1,1 +1,2 @@
-export * from './lib/gateway-client.module';
+export * from './lib/apollo-client';
+export * from './lib/auth';
