@@ -3,6 +3,7 @@
   "version": 2,
   "projects": {
     "gateway": "apps/gateway",
+    "gateway-client": "libs/gateway-client",
     "main": "apps/main",
     "site": "apps/site",
     "site-e2e": "apps/site-e2e"
