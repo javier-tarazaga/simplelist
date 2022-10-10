@@ -29,22 +29,29 @@
     "serve": {
       "executor": "@nrwl/node:node",
       "options": {
-        "buildTarget": "gateway:build"
+        "buildTarget": "backend:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/gateway/**/*.ts"]
+        "lintFilePatterns": ["apps/backend/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/gateway"],
+      "outputs": ["coverage/apps/backend"],
       "options": {
-        "jestConfig": "apps/gateway/jest.config.ts",
+        "jestConfig": "apps/backend/jest.config.ts",
         "passWithNoTests": true
+      }
+    },
+    "gen-client": {
+      "builder": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx prisma generate --schema ./apps/backend/prisma/schema.prisma"
       }
     }
   },

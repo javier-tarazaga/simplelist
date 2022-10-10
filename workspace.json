@@ -3,9 +3,8 @@
   "version": 2,
   "projects": {
     "core": "libs/core",
-    "gateway": "apps/gateway",
-    "gateway-client": "libs/gateway-client",
-    "main": "apps/main",
+    "backend-client": "libs/gateway-client",
+    "backend": "apps/backend",
     "site": "apps/site"
   }
 }
