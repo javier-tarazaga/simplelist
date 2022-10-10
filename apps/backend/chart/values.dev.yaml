@@ -1,0 +1,13 @@
+command: ['npm', 'run', 'start:dev', 'backend']
+image:
+  repository: simplelist/source
+
+service:
+  type: ClusterIP
+  port: 3000
+
+autoscaling:
+  enabled: false
+
+serviceAccount:
+  create: false

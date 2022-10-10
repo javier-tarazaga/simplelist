@@ -1,0 +1,19 @@
+k8s_yaml(
+  helm(
+    "./chart",
+    name = "backend",
+    values = [
+      "./chart/values.yaml",
+      "./chart/values.dev.yaml"
+    ]
+  )
+)
+
+k8s_resource(
+  "backend",
+  labels=["Microservices"],
+  resource_deps=["postgres"],
+  port_forwards=[
+    port_forward(3001, 3000, "Backend")
+  ]
+)

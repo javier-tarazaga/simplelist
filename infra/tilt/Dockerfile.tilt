@@ -1,0 +1,9 @@
+FROM node:16.17.1-buster as base
+WORKDIR /nest
+
+COPY package*.json /nest
+RUN npm ci
+
+FROM base as source
+RUN npm install -g source-map-support
+COPY . .

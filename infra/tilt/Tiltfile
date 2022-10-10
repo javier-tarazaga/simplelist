@@ -1,0 +1,24 @@
+#=================================#
+#         SCRIPTS               ==#
+#=================================#
+local_resource(
+    'install-dependencies',
+    cmd="cd .. && npm install --from-lock-file",
+    deps=['../package.json', '../package-lock.json'],
+    allow_parallel=True,
+    labels=["Scripts"],
+)
+
+#=================================#
+#         POSTGRES              ==#
+#=================================#
+k8s_yaml(
+    "definitions/postgresql/deploy.yaml"
+)
+k8s_resource(
+    "postgres",
+    labels=["Databases"],
+    port_forwards=[
+        port_forward(5432, 5432)
+    ]
+)
