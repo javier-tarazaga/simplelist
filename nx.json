@@ -1,8 +1,8 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "npmScope": "polar-melon",
+  "npmScope": "simplelist",
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "backend"
   },
   "implicitDependencies": {
     "package.json": {
@@ -37,5 +37,5 @@
       }
     }
   },
-  "defaultProject": "gateway"
+  "defaultProject": "backend"
 }
