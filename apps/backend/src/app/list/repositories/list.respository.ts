@@ -11,12 +11,10 @@ export class ListRepository {
     await this.prisma.list.upsert({
       create: {
         displayName: list.displayName.value,
-        name: list.name.value,
         userId: list.userId.toString(),
       },
       update: {
         displayName: list.displayName.value,
-        name: list.name.value,
         userId: list.userId.toString(),
         updatedAt: list.updatedAt,
       },

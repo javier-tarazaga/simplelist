@@ -30,7 +30,6 @@ export type User = {
  */
 export type List = {
   id: string
-  name: string
   displayName: string
   userId: string
   createdAt: Date
@@ -1825,7 +1824,6 @@ export namespace Prisma {
 
   export type ListMinAggregateOutputType = {
     id: string | null
-    name: string | null
     displayName: string | null
     userId: string | null
     createdAt: Date | null
@@ -1834,7 +1832,6 @@ export namespace Prisma {
 
   export type ListMaxAggregateOutputType = {
     id: string | null
-    name: string | null
     displayName: string | null
     userId: string | null
     createdAt: Date | null
@@ -1843,7 +1840,6 @@ export namespace Prisma {
 
   export type ListCountAggregateOutputType = {
     id: number
-    name: number
     displayName: number
     userId: number
     createdAt: number
@@ -1854,7 +1850,6 @@ export namespace Prisma {
 
   export type ListMinAggregateInputType = {
     id?: true
-    name?: true
     displayName?: true
     userId?: true
     createdAt?: true
@@ -1863,7 +1858,6 @@ export namespace Prisma {
 
   export type ListMaxAggregateInputType = {
     id?: true
-    name?: true
     displayName?: true
     userId?: true
     createdAt?: true
@@ -1872,7 +1866,6 @@ export namespace Prisma {
 
   export type ListCountAggregateInputType = {
     id?: true
-    name?: true
     displayName?: true
     userId?: true
     createdAt?: true
@@ -1960,7 +1953,6 @@ export namespace Prisma {
 
   export type ListGroupByOutputType = {
     id: string
-    name: string
     displayName: string
     userId: string
     createdAt: Date
@@ -1986,7 +1978,6 @@ export namespace Prisma {
 
   export type ListSelect = {
     id?: boolean
-    name?: boolean
     displayName?: boolean
     userId?: boolean
     user?: boolean | UserArgs
@@ -2754,7 +2745,6 @@ export namespace Prisma {
 
   export const ListScalarFieldEnum: {
     id: 'id',
-    name: 'name',
     displayName: 'displayName',
     userId: 'userId',
     createdAt: 'createdAt',
@@ -2859,7 +2849,6 @@ export namespace Prisma {
     OR?: Enumerable<ListWhereInput>
     NOT?: Enumerable<ListWhereInput>
     id?: UuidFilter | string
-    name?: StringFilter | string
     displayName?: StringFilter | string
     userId?: UuidFilter | string
     user?: XOR<UserRelationFilter, UserWhereInput>
@@ -2869,7 +2858,6 @@ export namespace Prisma {
 
   export type ListOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrder
     displayName?: SortOrder
     userId?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -2879,12 +2867,10 @@ export namespace Prisma {
 
   export type ListWhereUniqueInput = {
     id?: string
-    name?: string
   }
 
   export type ListOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrder
     displayName?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
@@ -2899,7 +2885,6 @@ export namespace Prisma {
     OR?: Enumerable<ListScalarWhereWithAggregatesInput>
     NOT?: Enumerable<ListScalarWhereWithAggregatesInput>
     id?: UuidWithAggregatesFilter | string
-    name?: StringWithAggregatesFilter | string
     displayName?: StringWithAggregatesFilter | string
     userId?: UuidWithAggregatesFilter | string
     createdAt?: DateTimeWithAggregatesFilter | Date | string
@@ -2968,7 +2953,6 @@ export namespace Prisma {
 
   export type ListCreateInput = {
     id?: string
-    name: string
     displayName: string
     user: UserCreateNestedOneWithoutListsInput
     createdAt?: Date | string
@@ -2977,7 +2961,6 @@ export namespace Prisma {
 
   export type ListUncheckedCreateInput = {
     id?: string
-    name: string
     displayName: string
     userId: string
     createdAt?: Date | string
@@ -2986,7 +2969,6 @@ export namespace Prisma {
 
   export type ListUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutListsNestedInput
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -2995,7 +2977,6 @@ export namespace Prisma {
 
   export type ListUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3004,7 +2985,6 @@ export namespace Prisma {
 
   export type ListCreateManyInput = {
     id?: string
-    name: string
     displayName: string
     userId: string
     createdAt?: Date | string
@@ -3013,7 +2993,6 @@ export namespace Prisma {
 
   export type ListUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3021,7 +3000,6 @@ export namespace Prisma {
 
   export type ListUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3154,7 +3132,6 @@ export namespace Prisma {
 
   export type ListCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
     displayName?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
@@ -3163,7 +3140,6 @@ export namespace Prisma {
 
   export type ListMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
     displayName?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
@@ -3172,7 +3148,6 @@ export namespace Prisma {
 
   export type ListMinOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
     displayName?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
@@ -3337,7 +3312,6 @@ export namespace Prisma {
 
   export type ListCreateWithoutUserInput = {
     id?: string
-    name: string
     displayName: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -3345,7 +3319,6 @@ export namespace Prisma {
 
   export type ListUncheckedCreateWithoutUserInput = {
     id?: string
-    name: string
     displayName: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -3382,7 +3355,6 @@ export namespace Prisma {
     OR?: Enumerable<ListScalarWhereInput>
     NOT?: Enumerable<ListScalarWhereInput>
     id?: UuidFilter | string
-    name?: StringFilter | string
     displayName?: StringFilter | string
     userId?: UuidFilter | string
     createdAt?: DateTimeFilter | Date | string
@@ -3433,7 +3405,6 @@ export namespace Prisma {
 
   export type ListCreateManyUserInput = {
     id?: string
-    name: string
     displayName: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -3441,7 +3412,6 @@ export namespace Prisma {
 
   export type ListUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3449,7 +3419,6 @@ export namespace Prisma {
 
   export type ListUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3457,7 +3426,6 @@ export namespace Prisma {
 
   export type ListUncheckedUpdateManyWithoutListsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
     displayName?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

@@ -90,7 +90,6 @@ function makeEnum(x) { return x; }
 
 exports.Prisma.ListScalarFieldEnum = makeEnum({
   id: 'id',
-  name: 'name',
   displayName: 'displayName',
   userId: 'userId',
   createdAt: 'createdAt',

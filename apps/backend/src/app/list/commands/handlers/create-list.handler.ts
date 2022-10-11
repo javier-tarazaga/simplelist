@@ -2,7 +2,7 @@ import { Result, UniqueEntityID } from '@simplelist/core';
 import { Injectable } from '@nestjs/common';
 import { CommandHandler, EventPublisher, ICommandHandler } from '@nestjs/cqrs';
 import { InjectSimplelistLogger, SimplelistLogger } from '@simplelist/core';
-import { ListAggregate, ListDisplayName, ListName } from '../../domain';
+import { ListAggregate, ListDisplayName } from '../../domain';
 import { ListDto } from '../../dto';
 import { ListMapper } from '../../mappers';
 import { ListRepository } from '../../repositories';
@@ -25,12 +25,8 @@ export class CreateListHandler implements ICommandHandler<CreateListCommand, Lis
       userId
      } = command.input;
     
-
-    const nameOrError = ListName.create(displayName);
     const displayNameOrError = ListDisplayName.create(displayName);
-
     const combinedPropsResult = Result.combine([
-      nameOrError,
       displayNameOrError,
     ]);
     if (combinedPropsResult.isFailure) {
@@ -43,7 +39,6 @@ export class CreateListHandler implements ICommandHandler<CreateListCommand, Lis
     const list = this.publisher.mergeObjectContext(
       ListAggregate.create({
         displayName: displayNameOrError.getValue(),
-        name: nameOrError.getValue(),
         userId: new UniqueEntityID(userId),
       })
     );
