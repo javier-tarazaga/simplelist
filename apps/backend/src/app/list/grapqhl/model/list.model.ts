@@ -13,5 +13,5 @@ export class List {
 @InputType()
 export class CreateListInput {
   @Field()
-  displayName: number;
+  displayName: string;
 }

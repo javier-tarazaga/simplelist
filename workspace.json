@@ -2,9 +2,10 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "core": "libs/core",
-    "backend-client": "libs/gateway-client",
     "backend": "apps/backend",
+    "backend-client": "libs/gateway-client",
+    "core": "libs/core",
+    "server-errors": "libs/server-errors",
     "site": "apps/site"
   }
 }

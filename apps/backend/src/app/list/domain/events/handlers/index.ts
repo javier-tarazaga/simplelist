@@ -1,0 +1,1 @@
+export * from './list-aggregate-created.handler';

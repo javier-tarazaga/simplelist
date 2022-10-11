@@ -1,5 +1,5 @@
 import { ApolloProvider } from '@apollo/client';
-import { client } from '@polar-melon/gateway-client';
+import { client } from '@simplelist/backend-client';
 import { AppProps } from 'next/app';
 import { UserContextProvider } from '../contexts/user.context';
 import './styles.css';

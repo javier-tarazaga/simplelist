@@ -92,6 +92,7 @@ exports.Prisma.ListScalarFieldEnum = makeEnum({
   id: 'id',
   name: 'name',
   displayName: 'displayName',
+  userId: 'userId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 });
@@ -113,8 +114,17 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.UserScalarFieldEnum = makeEnum({
+  id: 'id',
+  name: 'name',
+  displayName: 'displayName',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+});
+
 
 exports.Prisma.ModelName = makeEnum({
+  User: 'User',
   List: 'List'
 });
 

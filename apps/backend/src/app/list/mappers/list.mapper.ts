@@ -1,48 +1,28 @@
-import { UniqueEntityID } from '@app/core/domain/UniqueEntityID';
-import { Mapper } from '@app/core/infra/Mapper';
 import { Injectable } from '@nestjs/common';
-import { BlockingTaskDto } from '@app/gamification-client';
-import { BlockingTaskPersistedEntity, LevelPersistedEntity } from '../entities';
-import { BlockingTask } from '../domain';
+import { ListDisplayName, ListAggregate, ListName } from '../domain';
+import { ListDto } from '../dto';
+import { List } from '@prisma/client';
+import { UniqueEntityID } from '@simplelist/core';
 
 @Injectable()
-export class ListMapper extends Mapper {
-  public toDomain(persisted: BlockingTaskPersistedEntity): BlockingTask {
-    return BlockingTask.create({
-      title: persisted.title,
-      description: persisted.description,
-      striveCloudMilestoneId: persisted.striveCloudMilestoneId,
+export class ListMapper {
+  public toDomain(persisted: List): ListAggregate {
+    return ListAggregate.create({
+      displayName: ListDisplayName.create(persisted.displayName).getValue(),
+      name: ListName.create(persisted.name).getValue(),
+      userId: new UniqueEntityID(persisted.userId),
       createdAt: persisted.createdAt,
       updatedAt: persisted.updatedAt,
-      levelId: new UniqueEntityID(persisted.levelId),
-      seasonId: new UniqueEntityID(persisted.level.season.id),
     }, new UniqueEntityID(persisted.id));
   }
 
-  public toPersistence(blockingTask: BlockingTask, level: LevelPersistedEntity): BlockingTaskPersistedEntity {
-    const result = new BlockingTaskPersistedEntity();
-    result.id = blockingTask.id.toString();
-    result.title = blockingTask.title;
-    result.description = blockingTask.description;
-    result.striveCloudMilestoneId = blockingTask.striveCloudMilestoneId;
-    result.level = level;
-    result.levelId = level.id.toString();
-    result.createdAt = blockingTask.createdAt;
-    result.updatedAt = blockingTask.updatedAt;
-
-    return result;
-  }
-
-  public toDto(blockingTask: BlockingTask): BlockingTaskDto {
+  public toDto(list: ListAggregate): ListDto {
     return {
-      id: blockingTask.id.toString(),
-      title: blockingTask.title,
-      description: blockingTask.description,
-      striveCloudMilestoneId: blockingTask.striveCloudMilestoneId,
-      createdAt: blockingTask.createdAt,
-      updatedAt: blockingTask.updatedAt,
-      levelId: blockingTask.levelId.toString(),
-      seasonId: blockingTask.seasonId.toString(),
+      id: list.id.toString(),
+      displayName: list.displayName.value,
+      name: list.name.value,
+      createdAt: list.createdAt,
+      updatedAt: list.updatedAt,
     };
   }
 }

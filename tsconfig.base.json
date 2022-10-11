@@ -15,9 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@polar-melon/gateway-client": [
-        "libs/gateway-client/src/index.ts"
-      ]
+      "@prisma/client": ["apps/backend/src/generated/prisma-client"],
+      "@simplelist/backend-client": ["libs/backend-client/src/index.ts"],
+      "@simplelist/core": ["libs/core/src/index.ts"],
+      "@simplelist/server-errors": ["libs/server-errors/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -6,8 +6,8 @@ export class User {
   @Field()
   id: string;
 
-  @Field({ nullable: true })
-  displayName?: string;
+  @Field()
+  displayName: string;
 
   @Field()
   username: string;
