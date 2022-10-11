@@ -1,14 +1,19 @@
 import { Module } from '@nestjs/common';
-import { UserService } from './list.service';
-import { UserResolver } from './grapqhl/list.resolver';
+import * as Mappers from './mappers';
+import * as CommandHandlers from './commands/handlers';
+import * as Repositories from './repositories';
+import * as Resolvers from './grapqhl/resolvers';
+import { CqrsModule } from '@nestjs/cqrs';
 
 @Module({
-  providers: [
-    UserService,
-    UserResolver,
+  imports: [
+    CqrsModule,
   ],
-  exports: [
-    UserService,
-  ]
+  providers: [
+    ...Object.values(Mappers),
+    ...Object.values(CommandHandlers),
+    ...Object.values(Repositories),
+    ...Object.values(Resolvers),
+  ],
 })
 export class ListModule {}

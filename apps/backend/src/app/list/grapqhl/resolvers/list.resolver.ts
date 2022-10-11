@@ -1,7 +1,7 @@
 import { Resolver, Mutation, Args, Context } from '@nestjs/graphql';
-import { CreateListInput, List } from './model';
-import { ListService } from '../list.service';
-import { User } from '../../user/model';
+import { CreateListInput, List } from '../model';
+import { ListService } from '../../list.service';
+import { User } from '../../../user/model';
 
 @Resolver(() => List)
 export class UserResolver {
