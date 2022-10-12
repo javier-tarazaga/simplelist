@@ -7,3 +7,7 @@ RUN npm ci
 FROM base as source
 RUN npm install -g source-map-support
 COPY . .
+
+FROM source as backend
+RUN npm run build backend
+CMD ["sh", "-c", "node -r source-map-support/register dist/backend/main.js"]
